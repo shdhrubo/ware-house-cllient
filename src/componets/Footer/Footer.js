@@ -5,11 +5,11 @@ const Footer = () => {
   const year = today.getFullYear();
 
   return (
-    <footer className="text-center mt-5 bg-dark text-white  ">
+    <footer className="text-center mt-5   ">
       <p>
         <small>
           Copyrights &copy; {year} All rights reserved by{" "}
-          <b className="text-danger">SHD</b>{" "}
+          <b className="common-color">SHD</b>{" "}
         </small>
       </p>
     </footer>

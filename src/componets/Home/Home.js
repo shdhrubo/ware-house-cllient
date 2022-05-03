@@ -1,9 +1,35 @@
 import React from "react";
+import "./Home.css";
+import headerImg from "../../images/header.png";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   return (
-    <div>
-      <h3> THis is home</h3>
+    <div className="container text-start mt-4 ">
+      <div className="row">
+        <div className="col-12 col-sm-12 col-md-6 col-lg-6 ">
+          <h2 className="common-color">
+            {" "}
+            Easy Inventory <br />
+            Management System
+          </h2>
+          <p>
+            We are providing you the easiest way to manage your inventories with
+            exciting features.So what are you waiting for?Manage your items
+            here,easily!
+          </p>
+          <Link to={"/manage"}>
+            <button className="btn common-btn">
+              Get Started <FontAwesomeIcon icon={faArrowRight} />{" "}
+            </button>
+          </Link>
+        </div>
+        <div className="col-12 col-sm-12 col-md-6 col-lg-6 ">
+          <img className="w-100 rounded" src={headerImg} alt="" />
+        </div>
+      </div>
     </div>
   );
 };
