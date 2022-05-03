@@ -1,14 +1,17 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import CustomLink from "../CustomLink/CustomLink";
 import "./Header.css";
 const Header = () => {
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" sticky="top">
+      <Navbar collapseOnSelect expand="lg">
         <Container>
-          <Navbar.Brand href="/">EIMS</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">
+            EIMS
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -19,9 +22,7 @@ const Header = () => {
                 Blogs
               </Nav.Link>
             </Nav>
-            <Nav>
-             
-            </Nav>
+            <Nav></Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
