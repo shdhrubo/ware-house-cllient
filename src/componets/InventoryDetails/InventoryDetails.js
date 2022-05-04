@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import useInventoryDetails from "../../hooks/useInventoryDetails";
 import "./inventoryDetails.css";
 const InventoryDetails = () => {
   const { id } = useParams();
   const [inventory, setInventory] = useInventoryDetails(id);
- 
-  const handleDeliveredBtn = () => {
-    if (inventory.quantity > 0) {
-      const quantity = parseInt(inventory.quantity) - 1;
+  const [increase, setIncrease] = useState(false);
+  const handleUpdateItems = (event) => {
+    let quantity;
+    if (inventory.quantity >= 0) {
+      if (increase) {
+        quantity =
+          parseInt(event.target.increaseItems.value) +
+          parseInt(inventory.quantity);
+      } else {
+        quantity = parseInt(inventory.quantity) - 1;
+        if (quantity === -1) {
+          quantity = 0;
+          alert("Item already sold out");
+        }
+      }
       const updatedQuantity = {
         quantity,
       };
@@ -51,13 +62,22 @@ const InventoryDetails = () => {
         )}
       </p>
 
-      <button className="btn " onClick={handleDeliveredBtn}>
+      <button className="btn " onClick={handleUpdateItems}>
         Delivered
       </button>
-      {/* <div className="add-quantity">
-        <input type="number" />
-        <input type="submit" value="Store Quantity" />
-      </div> */}
+
+      <div className="add-quantity mt-3">
+        <form onSubmit={handleUpdateItems}>
+          <input type="number" name="increaseItems" required />
+          <br />
+          <input
+          className="btn mt-2"
+            type="submit"
+            value="Store Quantity"
+            onClick={() => setIncrease(true)}
+          />
+        </form>
+      </div>
     </div>
   );
 };
