@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import useInventories from "../../hooks/useInventories";
 import Inventory from "../Inventory/Inventory";
 
@@ -15,6 +16,9 @@ const Inventories = () => {
             <Inventory key={inventory.id} inventory={inventory}></Inventory>
           ))}
         </div>
+        <Link to="/manageinventories">
+          <button className="btn mt-3">Manage Inventories</button>
+        </Link>
       </div>
     </div>
   );

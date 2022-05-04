@@ -6,12 +6,17 @@ import Header from "./componets/Header/Header";
 import Home from "./componets/Home/Home";
 import InventoryDetails from "./componets/InventoryDetails/InventoryDetails";
 import NotFound from "./componets/NotFound/NotFound";
+import ManageInventory from "./ManageInventory/ManageInventory";
 function App() {
   return (
     <div className="App">
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
+        <Route
+          path="/manageinventories"
+          element={<ManageInventory></ManageInventory>}
+        ></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route
           path="/inventory/:id"
