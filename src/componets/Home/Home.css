@@ -1,8 +1,4 @@
-.common-color {
-  color: #00ad9f;
-}
-.container a button {
-    font-weight: 500;
-    color: white;
-  background-color: #00ad9f;
+.banner {
+  margin-top: 100px;
+  margin-bottom: 150px;
 }
