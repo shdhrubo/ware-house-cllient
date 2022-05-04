@@ -1,5 +1,4 @@
 import React from "react";
-import Inventory from "../componets/Inventory/Inventory";
 import useInventories from "../hooks/useInventories";
 
 const ManageInventory = () => {

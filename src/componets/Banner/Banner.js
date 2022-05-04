@@ -20,7 +20,7 @@ const Banner = () => {
               here,easily!
             </p>
             <Link to={"/manage"}>
-              <button className="btn common-btn mb-2">
+              <button className="btn mb-2">
                 Get Started <FontAwesomeIcon icon={faArrowRight} />{" "}
               </button>
             </Link>
