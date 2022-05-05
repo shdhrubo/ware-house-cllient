@@ -26,7 +26,7 @@ const Inventory = (props) => {
         <p>Quantity: {inventory.quantity}</p>
         <button
           onClick={() => navigateToInventoryDetaills(inventory._id)}
-          className="btn mb-2"
+          className="btn mb-2  rounded-pill"
         >
           Update
         </button>

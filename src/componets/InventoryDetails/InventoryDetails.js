@@ -6,6 +6,7 @@ const InventoryDetails = () => {
   const { id } = useParams();
   const [inventory, setInventory] = useInventoryDetails(id);
   const [increase, setIncrease] = useState(false);
+  //handleUpdateItems button 
   const handleUpdateItems = (event) => {
     let quantity;
     if (inventory.quantity >= 0) {
@@ -13,6 +14,7 @@ const InventoryDetails = () => {
         quantity =
           parseInt(event.target.increaseItems.value) +
           parseInt(inventory.quantity);
+        event.target.reset();
       } else {
         quantity = parseInt(inventory.quantity) - 1;
         if (quantity === -1) {
@@ -42,7 +44,7 @@ const InventoryDetails = () => {
     }
   };
   return (
-    <div className="inventory-details">
+    <div className="inventory-details container border p-3">
       <h4 className="common-color">{inventory.name} </h4>
 
       <img
@@ -51,27 +53,40 @@ const InventoryDetails = () => {
         alt=""
       />
       <p>{inventory.description}</p>
-      <p>Supplier: {inventory.supplier}</p>
-      <p>Price: {inventory.price}</p>
-      <p>
-        Quantity: {inventory.quantity}{" "}
-        {inventory.quantity === 0 ? (
-          <span className="text-danger">(Sold)</span>
-        ) : (
-          ""
-        )}
-      </p>
+      <div className="inventory-details-information">
+        <p>Supplier: {inventory.supplier}</p>
+        <p>Price: {inventory.price}</p>
+        <h6>
+          Quantity: {inventory.quantity}{" "}
+          {inventory.quantity === 0 ? (
+            <span className="text-danger">(Sold)</span>
+          ) : (
+            ""
+          )}
+        </h6>
+      </div>
 
-      <button className="btn " onClick={handleUpdateItems}>
+      <button
+        className="btn rounded-pill"
+        onClick={() => {
+          handleUpdateItems();
+          setIncrease(false);
+        }}
+      >
         Delivered
       </button>
 
       <div className="add-quantity mt-3">
         <form onSubmit={handleUpdateItems}>
-          <input type="number" name="increaseItems" required />
+          <input
+            type="number"
+            name="increaseItems"
+            placeholder="Add quantity"
+            required
+          />
           <br />
           <input
-          className="btn mt-2"
+            className="btn mt-2 rounded-pill"
             type="submit"
             value="Store Quantity"
             onClick={() => setIncrease(true)}
