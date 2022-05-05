@@ -1,3 +1,5 @@
+import { faDeleteLeft, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Table } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
@@ -9,7 +11,25 @@ const ManageInventory = () => {
   const navigateToInventoryDetaills = (id) => {
     navigate(`/inventory/${id}`);
   };
-  const [inventories] = useInventories();
+  const [inventories, setInventories] = useInventories();
+  //delete inventory
+  const deleteHandle = (id) => {
+    const proceed = window.confirm("Are you sure to delete?");
+    if (proceed) {
+      const url = `http://localhost:5000/inventory/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          const remaining = inventories.filter(
+            (inventory) => inventory._id !== id
+          );
+          setInventories(remaining);
+        });
+    }
+  };
   return (
     <div>
       <h3 className="common-color">Inventories</h3>
@@ -34,6 +54,12 @@ const ManageInventory = () => {
                   className="btn mb-2  rounded-pill"
                 >
                   Update
+                </button>
+                <button
+                  onClick={() => deleteHandle(inventory._id)}
+                  className="btn btn-danger bg-danger ms-3"
+                >
+                  <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
                 </button>
               </td>
             </tr>

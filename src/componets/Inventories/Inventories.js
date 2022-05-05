@@ -8,7 +8,7 @@ const Inventories = () => {
   const slicedInventories = inventories.slice(0, 6);
 
   return (
-    <div>
+    <div >
       <h4 className="common-color mb-3">Inventory Items</h4>
       <div className="container ">
         <div className=" row gy-5 mx-auto">

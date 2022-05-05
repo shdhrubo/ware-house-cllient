@@ -5,7 +5,9 @@ import Footer from "./componets/Footer/Footer";
 import Header from "./componets/Header/Header";
 import Home from "./componets/Home/Home";
 import InventoryDetails from "./componets/InventoryDetails/InventoryDetails";
+import LogIn from "./componets/LogIn/LogIn";
 import NotFound from "./componets/NotFound/NotFound";
+import Register from "./componets/Register/Register";
 import ManageInventory from "./ManageInventory/ManageInventory";
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           path="/inventory/:id"
           element={<InventoryDetails></InventoryDetails>}
         ></Route>
+        <Route path="/login" element={<LogIn></LogIn>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
