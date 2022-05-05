@@ -5,43 +5,37 @@ import "./inventoryDetails.css";
 const InventoryDetails = () => {
   const { id } = useParams();
   const [inventory, setInventory] = useInventoryDetails(id);
-  const [increase, setIncrease] = useState(false);
-  //handleUpdateItems button 
-  const handleUpdateItems = (event) => {
-    let quantity;
-    if (inventory.quantity >= 0) {
-      if (increase) {
-        quantity =
-          parseInt(event.target.increaseItems.value) +
-          parseInt(inventory.quantity);
-        event.target.reset();
-      } else {
-        quantity = parseInt(inventory.quantity) - 1;
-        if (quantity === -1) {
-          quantity = 0;
-          alert("Item already sold out");
-        }
-      }
-      const updatedQuantity = {
-        quantity,
-      };
-      // send data to the server
-      const url = `http://localhost:5000/inventory/${id}`;
-      fetch(url, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updatedQuantity),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("success", data);
-          setInventory({ ...inventory, quantity });
-        });
-    } else {
-      alert("Item already sold out");
+  const [updateQuantity, setUpdateQuantity] = useState(null);
+
+  //handleUpdateItems button
+  const handleUpdateItems = (type, event) => {
+    if (inventory.quantity === 0 && !type) {
+      return alert("Item already sold out");
     }
+    let quantity;
+    if (type) {
+      quantity = parseInt(updateQuantity) + parseInt(inventory?.quantity);
+    } else {
+      quantity = parseInt(inventory?.quantity) - 1;
+    }
+    const updatedQuantity = {
+      quantity,
+    };
+    // send data to the server
+    const url = `http://localhost:5000/inventory/${id}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedQuantity),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("success", data);
+        setInventory({ ...inventory, quantity });
+        event && event.target.reset();
+      });
   };
   return (
     <div className="inventory-details container border p-3">
@@ -69,27 +63,33 @@ const InventoryDetails = () => {
       <button
         className="btn rounded-pill"
         onClick={() => {
-          handleUpdateItems();
-          setIncrease(false);
+          handleUpdateItems(false);
         }}
       >
         Delivered
       </button>
 
       <div className="add-quantity mt-3">
-        <form onSubmit={handleUpdateItems}>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            handleUpdateItems(true, event);
+          }}
+        >
           <input
             type="number"
             name="increaseItems"
             placeholder="Add quantity"
             required
+            onChange={(event) => {
+              setUpdateQuantity(event.target.value);
+            }}
           />
           <br />
           <input
             className="btn mt-2 rounded-pill"
             type="submit"
             value="Store Quantity"
-            onClick={() => setIncrease(true)}
           />
         </form>
       </div>

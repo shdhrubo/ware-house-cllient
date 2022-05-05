@@ -6,7 +6,7 @@ import Inventory from "../Inventory/Inventory";
 const Inventories = () => {
   const [inventories] = useInventories();
   const slicedInventories = inventories.slice(0, 6);
-  console.log(slicedInventories.length);
+
   return (
     <div>
       <h4 className="common-color mb-3">Inventory Items</h4>
