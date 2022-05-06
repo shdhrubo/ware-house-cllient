@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
@@ -7,13 +7,29 @@ import {
 import auth from "../../firebase.init";
 
 import "./LogIn.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Loading from "../Loading/Loading";
 const LogIn = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-
+  let errorElement;
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  const resetPassword = async () => {
+    const email = emailRef.current.value;
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast("Varification Email Sent");
+    } else {
+      toast("Please enter your email address");
+    }
+  };
   const handleLogin = (event) => {
     event.preventDefault();
     const email = emailRef.current.value;
@@ -21,6 +37,15 @@ const LogIn = () => {
     signInWithEmailAndPassword(email, password);
     event.target.reset();
   };
+  if (error) {
+    errorElement = <p className="text-danger">Error: {error?.message}</p>;
+  }
+  if (loading || sending) {
+    return <Loading></Loading>;
+  }
+  if (user) {
+    navigate(from, { replace: true });
+  }
   return (
     <div className="form w-100">
       <h2 className="text-center common-color">Log In</h2>
@@ -50,6 +75,7 @@ const LogIn = () => {
           value="Log In"
         />
       </form>
+      {errorElement}
       <Link
         to="/register"
         className="common-color pe-auto text-decoration-none"
@@ -58,10 +84,14 @@ const LogIn = () => {
       </Link>{" "}
       <br />
       <div className="forget-btn">
-        <button className=" btn btn-link pe-auto text-decoration-none ">
+        <button
+          className=" btn btn-link pe-auto text-decoration-none "
+          onClick={resetPassword}
+        >
           Reset Password
         </button>{" "}
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
