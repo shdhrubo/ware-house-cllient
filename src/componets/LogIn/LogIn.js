@@ -10,6 +10,7 @@ import "./LogIn.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "../Loading/Loading";
+import SocialLogin from "../SocialLogin/SocialLogin";
 const LogIn = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -91,6 +92,7 @@ const LogIn = () => {
           Reset Password
         </button>{" "}
       </div>
+      <SocialLogin></SocialLogin>
       <ToastContainer></ToastContainer>
     </div>
   );

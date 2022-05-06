@@ -1,27 +1,44 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import "./Register.css";
+import { toast, ToastContainer } from "react-toastify";
+import Loading from "../Loading/Loading";
+import SocialLogin from "../SocialLogin/SocialLogin";
 const Register = () => {
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const confPasswordRef = useRef("");
+  const navigate = useNavigate();
+
+  const location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-  const handleRegister = (event) => {
+
+  let errorElement;
+  const handleRegister = async (event) => {
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     const confPassword = confPasswordRef.current.value;
     if (password !== confPassword) {
-      return alert('not match');
+      return toast("Password did not matched");
     }
-    createUserWithEmailAndPassword(email, password);
+    await createUserWithEmailAndPassword(email, password);
 
-    event.target.reset();
+    navigate("/home");
   };
 
+  if (loading) {
+    return <Loading></Loading>;
+  }
+  if (error) {
+    errorElement = <p className="text-danger">Error: {error?.message}</p>;
+  }
+ 
   return (
     <div className="form w-100">
       <h2 className="text-center common-color">Register</h2>
@@ -61,9 +78,12 @@ const Register = () => {
           value="Register"
         />
       </form>
+      {errorElement}
       <Link to="/login" className="common-color pe-auto text-decoration-none">
         I already have an account
       </Link>{" "}
+      <SocialLogin></SocialLogin>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
