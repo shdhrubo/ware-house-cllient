@@ -1,14 +1,17 @@
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
-import MyItem from "../MyItem/MyItem";
 
 const MyItems = () => {
   const [user] = useAuthState(auth);
   const [myItems, setMyItems] = useState([]);
-  console.log(myItems);
+  const navigate = useNavigate();
+  const navigateToInventoryDetaills = (id) => {
+    navigate(`/inventory/${id}`);
+  };
   useEffect(() => {
     const email = user.email;
     fetch(`http://localhost:5000/inventories?email=${email}`)
@@ -31,18 +34,28 @@ const MyItems = () => {
     }
   };
   return (
-    <div>
-      <h2 className="common-color">My Items {myItems.length}</h2>
+    <div style={{ marginBottom: "520px" }}>
+      <h2 className="common-color">My Items : {myItems.length}</h2>
       {myItems.map((myItem) => (
-        <h6>
-          {myItem.name}{" "}
-          <button
-            onClick={() => deleteHandle(myItem._id)}
-            className="btn btn-danger"
-          >
-            <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
-          </button>
-        </h6>
+        <div className="border w-50 mx-auto m-2 pb-2">
+          Inventory Name : {myItem.name} <br /> Quantity : {myItem.quantity}{" "}
+          {myItem.quantity === 0 && <span className="text-danger">(Sold)</span>}
+          <br />
+          <div className="update-btn">
+            <button
+              onClick={() => navigateToInventoryDetaills(myItem._id)}
+              className="btn  rounded-pill"
+            >
+              Update <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>{" "}
+            </button>
+            <button
+              onClick={() => deleteHandle(myItem._id)}
+              className="btn btn-danger bg-danger ms-2"
+            >
+              <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+            </button>
+          </div>
+        </div>
       ))}
     </div>
   );

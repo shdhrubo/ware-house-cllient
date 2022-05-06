@@ -44,18 +44,28 @@ const AddItems = () => {
       <h2 className="common-color">Add new inventory items</h2>
       <form className="add-form" onSubmit={handleAddItems}>
         {/* <input type="email" readOnly value={user.email} /> */}
-        <input name="name" type="text" placeholder="Name" />
+        <input name="name" type="text" placeholder="Name" required />
 
-        <textarea name="description" type="text" placeholder="Description" />
+        <textarea
+          name="description"
+          type="text"
+          placeholder="Description"
+          required
+        />
 
-        <input name="supplier" type="text" placeholder="Supplier Name" />
-        <input name="img" type="text" placeholder="Image URL" />
+        <input
+          name="supplier"
+          type="text"
+          placeholder="Supplier Name"
+          required
+        />
+        <input name="img" type="text" placeholder="Image URL" required />
 
-        <input name="price" type="text" placeholder="Price" />
+        <input name="price" type="text" placeholder="Price" required />
 
-        <input name="quantity" type="number" placeholder="Quantity" />
+        <input name="quantity" type="number" placeholder="Quantity" required />
 
-        <input type="submit" value="Add Item" className="btn" />
+        <input type="submit" value="Add Item" className="btn" required />
       </form>
       <ToastContainer></ToastContainer>
     </div>

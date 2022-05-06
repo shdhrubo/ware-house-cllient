@@ -1,4 +1,4 @@
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash, faUserEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Table } from "react-bootstrap";
@@ -33,9 +33,7 @@ const ManageInventory = () => {
   return (
     <div>
       <h3 className="common-color">Inventories</h3>
-      <span><Link to="/manageinventories">
-          <button className="btn mt-3 rounded-pill">Manage Inventories</button>
-        </Link></span>
+      <span></span>
       <Table striped bordered hover className="container">
         <thead>
           <tr>
@@ -53,9 +51,9 @@ const ManageInventory = () => {
                 {" "}
                 <button
                   onClick={() => navigateToInventoryDetaills(inventory._id)}
-                  className="btn mb-2  rounded-pill"
+                  className="btn  rounded-pill"
                 >
-                  Update
+                  Update <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
                 </button>
                 <button
                   onClick={() => deleteHandle(inventory._id)}
@@ -68,6 +66,11 @@ const ManageInventory = () => {
           ))}
         </tbody>
       </Table>
+     <div className="update-btn">
+     <Link to="/additems">
+        <button className="btn mt-3  rounded-pill">Add Items</button>
+      </Link>
+     </div>
     </div>
   );
 };

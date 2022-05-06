@@ -24,7 +24,10 @@ const RequireAuth = ({ children }) => {
   if (user.providerData[0]?.providerId === "password" && !user.emailVerified) {
     return (
       <div className="text-center mt-4">
-        <h3 className="text-danger">Your Email is not verified!!</h3>
+        <h3 className="text-danger">
+          Could not varify you.Varify your email.Please check your spam folder
+          too.
+        </h3>
         <button
           className="btn btn-primary"
           onClick={async () => {
