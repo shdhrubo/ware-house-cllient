@@ -11,6 +11,7 @@ import LogIn from "./componets/LogIn/LogIn";
 import MyItems from "./componets/MyItems/MyItems";
 import NotFound from "./componets/NotFound/NotFound";
 import Register from "./componets/Register/Register";
+import RequireAuth from "./componets/RequireAuth/RequireAuth";
 import ManageInventory from "./ManageInventory/ManageInventory";
 function App() {
   return (
@@ -21,15 +22,38 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route
           path="/manageinventories"
-          element={<ManageInventory></ManageInventory>}
+          element={
+            <RequireAuth>
+              <ManageInventory></ManageInventory>
+            </RequireAuth>
+          }
         ></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route
           path="/inventory/:id"
-          element={<InventoryDetails></InventoryDetails>}
+          element={
+            <RequireAuth>
+              {" "}
+              <InventoryDetails></InventoryDetails>
+            </RequireAuth>
+          }
         ></Route>
-        <Route path="/additems" element={<AddItems></AddItems>}></Route>
-        <Route path="/myitems" element={<MyItems></MyItems>}></Route>
+        <Route
+          path="/additems"
+          element={
+            <RequireAuth>
+              <AddItems></AddItems>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/myitems"
+          element={
+            <RequireAuth>
+              <MyItems></MyItems>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/login" element={<LogIn></LogIn>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>

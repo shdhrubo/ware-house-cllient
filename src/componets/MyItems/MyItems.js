@@ -3,7 +3,7 @@ import React from "react";
 const MyItems = () => {
   return (
     <div>
-      <h2 className="common-color">My Items</h2>
+      <h2 className="common-color">My aItems</h2>
     </div>
   );
 };

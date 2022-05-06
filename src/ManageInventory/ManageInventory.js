@@ -2,7 +2,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Table } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import useInventories from "../hooks/useInventories";
 import "./ManageInventory.css";
 const ManageInventory = () => {
@@ -33,8 +33,10 @@ const ManageInventory = () => {
   return (
     <div>
       <h3 className="common-color">Inventories</h3>
-
-      <Table striped bordered hover>
+      <span><Link to="/manageinventories">
+          <button className="btn mt-3 rounded-pill">Manage Inventories</button>
+        </Link></span>
+      <Table striped bordered hover className="container">
         <thead>
           <tr>
             <th>Name</th>
