@@ -1,9 +1,14 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { toast, ToastContainer } from "react-toastify";
+import auth from "../../firebase.init";
 import "./AddItems.css";
 const AddItems = () => {
+  const [user] = useAuthState(auth);
+
   const handleAddItems = (event) => {
     event.preventDefault();
+    const email = user.email;
     const name = event.target.name.value;
     const description = event.target.description.value;
     const supplier = event.target.supplier.value;
@@ -17,6 +22,7 @@ const AddItems = () => {
       img,
       price,
       quantity,
+      email,
     };
 
     // send data to the server
@@ -29,7 +35,6 @@ const AddItems = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("success", data);
         toast("Inventory added successfully!!!");
         event.target.reset();
       });
@@ -38,6 +43,7 @@ const AddItems = () => {
     <div>
       <h2 className="common-color">Add new inventory items</h2>
       <form className="add-form" onSubmit={handleAddItems}>
+        {/* <input type="email" readOnly value={user.email} /> */}
         <input name="name" type="text" placeholder="Name" />
 
         <textarea name="description" type="text" placeholder="Description" />
