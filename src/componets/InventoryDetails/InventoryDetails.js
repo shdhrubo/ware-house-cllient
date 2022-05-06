@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useInventoryDetails from "../../hooks/useInventoryDetails";
 import "./inventoryDetails.css";
 const InventoryDetails = () => {
@@ -92,6 +92,9 @@ const InventoryDetails = () => {
             value="Store Quantity"
           />
         </form>
+        <Link to="/manageinventories">
+          <button className="btn mt-3 rounded-pill">Manage Inventories</button>
+        </Link>
       </div>
     </div>
   );

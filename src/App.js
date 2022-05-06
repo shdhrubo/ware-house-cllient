@@ -1,12 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
+import AddItems from "./componets/AddItems/AddItems";
 import Blogs from "./componets/Blogs/Blogs";
 import Footer from "./componets/Footer/Footer";
 import Header from "./componets/Header/Header";
 import Home from "./componets/Home/Home";
 import InventoryDetails from "./componets/InventoryDetails/InventoryDetails";
 import LogIn from "./componets/LogIn/LogIn";
+import MyItems from "./componets/MyItems/MyItems";
 import NotFound from "./componets/NotFound/NotFound";
 import Register from "./componets/Register/Register";
 import ManageInventory from "./ManageInventory/ManageInventory";
@@ -26,6 +28,8 @@ function App() {
           path="/inventory/:id"
           element={<InventoryDetails></InventoryDetails>}
         ></Route>
+        <Route path="/additems" element={<AddItems></AddItems>}></Route>
+        <Route path="/myitems" element={<MyItems></MyItems>}></Route>
         <Route path="/login" element={<LogIn></LogIn>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
