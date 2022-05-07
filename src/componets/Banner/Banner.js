@@ -6,7 +6,7 @@ import headerImg from "../../images/header.png";
 import "./Banner.css";
 const Banner = () => {
   return (
-    <div className="container text-start mt-4 ">
+    <div className="container text-start mt-4 banner">
       <div className="row">
         <div className="col-12 col-sm-12 col-md-6 col-lg-6 ">
           <h2 className="common-color">

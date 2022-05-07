@@ -19,7 +19,7 @@ const Header = () => {
       <Navbar collapseOnSelect expand="lg">
         <Container>
           <Navbar.Brand as={Link} to="/">
-            <span className="common-color">EIMS</span>
+            <span className="common-color company-logo">EIMS</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
