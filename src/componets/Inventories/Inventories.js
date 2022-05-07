@@ -17,6 +17,7 @@ const Inventories = () => {
       >
         <div className="container ">
           <div className=" row gy-5 mx-auto ">
+         
             {slicedInventories.map((inventory) => (
               <Inventory key={inventory._id} inventory={inventory}></Inventory>
             ))}

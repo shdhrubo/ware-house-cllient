@@ -1,9 +1,10 @@
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./Inventory.css";
 const Inventory = (props) => {
+
   const id = useParams();
   const navigate = useNavigate();
   const { inventory } = props;
