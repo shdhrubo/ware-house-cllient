@@ -1,3 +1,9 @@
+# EIMS-Easy Inventory Management Servicee
+
+EISM is a website where you can manage your inventory items easily.
+
+Live site Link[EIMS](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-shdhrubo)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
