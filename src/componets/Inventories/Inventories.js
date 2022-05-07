@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useInventories from "../../hooks/useInventories";
 import Inventory from "../Inventory/Inventory";
-import './Inventories.css'
+import "./Inventories.css";
 const Inventories = () => {
   const [inventories] = useInventories();
   const slicedInventories = inventories.slice(0, 6);
@@ -17,7 +17,7 @@ const Inventories = () => {
           ))}
         </div>
         <Link to="/manageinventories">
-          <button className="btn mt-3">Manage Inventories</button>
+          <button className="btn mt-3  rounded-pill">Manage Inventories</button>
         </Link>
       </div>
     </div>
