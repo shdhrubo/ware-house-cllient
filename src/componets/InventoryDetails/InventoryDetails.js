@@ -38,7 +38,7 @@ const InventoryDetails = () => {
       });
   };
   return (
-    <div className="inventory-details container border p-3">
+    <div className="inventories-details container border p-3">
       <h4 className="common-color">{inventory.name} </h4>
 
       <img
@@ -46,8 +46,9 @@ const InventoryDetails = () => {
         src={inventory.img}
         alt=""
       />
-      <p>{inventory.description}</p>
+      <p>Description: {inventory.description}</p>
       <div className="inventory-details-information">
+        <p>ID: {inventory._id}</p>
         <p>Supplier: {inventory.supplier}</p>
         <p>Price: {inventory.price}</p>
         <h6>

@@ -29,7 +29,8 @@ const Register = () => {
     }
     await createUserWithEmailAndPassword(email, password);
 
-    navigate("/home");
+    // navigate("/home");
+    navigate(from, { replace: true });
   };
 
   if (loading) {
@@ -38,7 +39,7 @@ const Register = () => {
   if (error) {
     errorElement = <p className="text-danger">Error: {error?.message}</p>;
   }
- 
+
   return (
     <div className="form w-100">
       <h2 className="text-center common-color">Register</h2>

@@ -4,8 +4,13 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import useInventories from "../hooks/useInventories";
+// import { useAuthState } from "react-firebase-hooks/auth";
+// import auth from "../firebase.init";
+
 import "./ManageInventory.css";
 const ManageInventory = () => {
+  // const [user] = useAuthState(auth);
+
   const id = useParams();
   const navigate = useNavigate();
   const navigateToInventoryDetaills = (id) => {
@@ -66,11 +71,11 @@ const ManageInventory = () => {
           ))}
         </tbody>
       </Table>
-     <div className="update-btn">
-     <Link to="/additems">
-        <button className="btn mt-3  rounded-pill">Add Items</button>
-      </Link>
-     </div>
+      <div className="update-btn">
+        <Link to="/additems">
+          <button className="btn mt-3  rounded-pill">Add Items</button>
+        </Link>
+      </div>
     </div>
   );
 };
