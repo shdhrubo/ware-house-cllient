@@ -4,13 +4,11 @@
   background-color: #00ad9f;
 }
 .inventory {
-  /* box-shadow: 5px 5px 5px 5px #888888; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  /* border: 1px solid blue; 
-  */
-  /* border-top: 3px solid #00ad9f; */
+
   border-radius: 5px;
 }
-.inventory-details {
-  line-height: 2px;
+.inventory-details p,
+h6 {
+  margin-bottom: 0;
 }

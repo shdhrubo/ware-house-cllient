@@ -3,18 +3,18 @@ import React from "react";
 const Blogs = () => {
   return (
     <div>
-      <h4>Question Answer Session:</h4>
+      <h4 className="common-color mt-3">Question Answer Session:</h4>
       <div className="text-start container">
-        <h6>Q.1 : Difference between javascript and node.js</h6>
+        <h4>Q.1 : Difference between javascript and node.js</h4>
         <p>
           <b>Answer :</b>
-          1.Javascript is a programming language,node.js is the run time
+          1. Javascript is a programming language,node.js is the run time
           environment for javascript. <br />
-          2.Javascript itself can only be run in the browser,but with the help
+          2. Javascript itself can only be run in the browser,but with the help
           of node.js javascript can run outsite of the browser. <br />
-          3.Javascript run in the client site mostly,but node.js run in the
+          3. Javascript run in the client site mostly,but node.js run in the
           server site mostly. <br />
-          4.Javascript is capable enough to add HTML and play with the DOM,but
+          4. Javascript is capable enough to add HTML and play with the DOM,but
           node.js does not have capability to add HTML tags.
         </p>
         <br />
@@ -35,10 +35,10 @@ const Blogs = () => {
         <h4>Q.3 : What is the differences between sql and nosql databases?</h4>
         <p>
           <b>Answer: </b>
-          1.SQL is the relational database,where NOSQL is distributed database.{" "}
+          1. SQL is the relational database,where NOSQL is distributed database.{" "}
           <br />
-          2.SQL is table based,NOSQL is document based. <br />
-          3.SQL update and insert synchronusly,but NOSQL update and insert
+          2. SQL is table based,NOSQL is document based. <br />
+          3. SQL update and insert synchronusly,but NOSQL update and insert
           asynchronusly.
         </p>
         <br />

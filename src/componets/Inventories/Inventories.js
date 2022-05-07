@@ -9,16 +9,24 @@ const Inventories = () => {
 
   return (
     <div>
-      <h4 className="common-color mb-4 inventory-heading">Inventory Items</h4>
-      <div className="container ">
-        <div className=" row gy-5 mx-auto">
-          {slicedInventories.map((inventory) => (
-            <Inventory key={inventory._id} inventory={inventory}></Inventory>
-          ))}
+      <h4 className="common-color mb-2 inventory-heading">Inventory Items</h4>
+
+      <div
+        className="container-fluid pt-5 pb-4"
+        style={{ backgroundColor: "#F9FBFA" }}
+      >
+        <div className="container ">
+          <div className=" row gy-5 mx-auto ">
+            {slicedInventories.map((inventory) => (
+              <Inventory key={inventory._id} inventory={inventory}></Inventory>
+            ))}
+          </div>
+          <Link to="/manageinventories">
+            <button className="btn mt-3  rounded-pill">
+              Manage Inventories
+            </button>
+          </Link>
         </div>
-        <Link to="/manageinventories">
-          <button className="btn mt-3  rounded-pill">Manage Inventories</button>
-        </Link>
       </div>
     </div>
   );
