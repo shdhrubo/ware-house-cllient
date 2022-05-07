@@ -11,6 +11,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "../Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import axios from "axios";
 const LogIn = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -31,11 +32,15 @@ const LogIn = () => {
       toast("Please enter your email address");
     }
   };
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post("http://localhost:5000/login", { email });
+    localStorage.setItem("accessToken", data.accessToken);
+    navigate(from, { replace: true });
+
     event.target.reset();
   };
   if (error) {
@@ -45,7 +50,7 @@ const LogIn = () => {
     return <Loading></Loading>;
   }
   if (user) {
-    navigate(from, { replace: true });
+    // navigate(from, { replace: true });
   }
   return (
     <div className="form w-100">
