@@ -9,7 +9,7 @@ const Reviews = () => {
       .then((data) => setReviews(data));
   }, []);
   return (
-    <div className="container">
+    <div className="container ">
       <h4 className="common-color heading mt-5">Testimonials</h4>
       <Carousel className="mt-4 mb-5" variant="dark">
         {reviews.map((review) => (

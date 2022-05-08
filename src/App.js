@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
+import AboutUs from "./componets/AboutUs/AboutUs";
 import AddItems from "./componets/AddItems/AddItems";
 import Blogs from "./componets/Blogs/Blogs";
 import Footer from "./componets/Footer/Footer";
@@ -42,6 +43,7 @@ function App() {
               }
             ></Route>
             <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+            <Route path="/about" element={<AboutUs></AboutUs>}></Route>
             <Route
               path="/inventory/:id"
               element={

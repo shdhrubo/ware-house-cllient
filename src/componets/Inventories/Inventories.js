@@ -16,7 +16,7 @@ const Inventories = () => {
         style={{ backgroundColor: "#F9FBFA" }}
       >
         <div className="container ">
-          <div className=" row gy-5 mx-auto ">
+          <div className=" row g-4 mx-auto ">
          
             {slicedInventories.map((inventory) => (
               <Inventory key={inventory._id} inventory={inventory}></Inventory>

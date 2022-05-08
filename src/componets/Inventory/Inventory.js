@@ -1,10 +1,9 @@
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./Inventory.css";
 const Inventory = (props) => {
-
   const id = useParams();
   const navigate = useNavigate();
   const { inventory } = props;
@@ -31,7 +30,7 @@ const Inventory = (props) => {
       </div>
       <button
         onClick={() => navigateToInventoryDetaills(inventory._id)}
-        className="btn mb-3 pt-0 pb-0 "
+        className="btn mt-3 mb-3 rounded-pill "
       >
         Update <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
       </button>

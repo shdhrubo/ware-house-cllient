@@ -62,7 +62,7 @@ const InventoryDetails = () => {
       </div>
 
       <button
-        className="btn rounded-pill"
+        className="btn rounded-pill mt-3"
         onClick={() => {
           handleUpdateItems(false);
         }}
