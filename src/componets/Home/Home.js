@@ -4,6 +4,7 @@ import "./Home.css";
 import Banner from "../Banner/Banner";
 import Inventories from "../Inventories/Inventories";
 import WhyUs from "../WhyUs/WhyUs";
+import Reviews from "../Reviews/Reviews";
 
 const Home = () => {
   return (
@@ -13,8 +14,8 @@ const Home = () => {
       </div>
       <Inventories></Inventories>
       <WhyUs></WhyUs>
+      <Reviews></Reviews>
     </div>
-    
   );
 };
 
