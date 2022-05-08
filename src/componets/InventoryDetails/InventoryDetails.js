@@ -32,7 +32,6 @@ const InventoryDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("success", data);
         setInventory({ ...inventory, quantity });
         event && event.target.reset();
       });

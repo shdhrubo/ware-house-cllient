@@ -9,9 +9,7 @@ import useInventories from "../../hooks/useInventories";
 
 const MyItems = () => {
   const [user] = useAuthState(auth);
-  console.log(user);
   const [myItems, setMyItems] = useState([]);
-  console.log(myItems);
   const [inventories, setInventories] = useInventories();
   const navigate = useNavigate();
   const navigateToInventoryDetaills = (id) => {

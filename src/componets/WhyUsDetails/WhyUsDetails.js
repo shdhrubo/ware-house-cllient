@@ -5,7 +5,6 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const WhyUsDetails = (props) => {
-  console.log(props);
   const { service } = props;
   return (
     <div className="col-12 col-sm-12 col-md-6 col-lg-4 ">
