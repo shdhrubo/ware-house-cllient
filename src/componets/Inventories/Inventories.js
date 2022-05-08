@@ -9,7 +9,7 @@ const Inventories = () => {
 
   return (
     <div>
-      <h4 className="common-color mb-2 inventory-heading">Inventory Items</h4>
+      <h4 className="common-color mb-2 heading">Inventory Items</h4>
 
       <div
         className="container-fluid pt-5 pb-4"
