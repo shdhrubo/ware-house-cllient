@@ -39,7 +39,7 @@ const ManageInventory = () => {
     <div>
       <h3 className="common-color">Inventories</h3>
       <span></span>
-      <Table striped bordered hover className="container">
+      <Table striped bordered responsive hover className="container">
         <thead>
           <tr>
             <th>Name</th>
