@@ -26,7 +26,7 @@ const AddItems = () => {
     };
 
     // send data to the server
-    fetch("http://localhost:5000/inventories", {
+    fetch("https://thawing-dawn-14943.herokuapp.com/inventories", {
       method: "POST",
       headers: {
         "content-type": "application/json",

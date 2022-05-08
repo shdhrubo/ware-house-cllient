@@ -4,7 +4,7 @@ import WhyUsDetails from "../WhyUsDetails/WhyUsDetails";
 const WhyUs = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("https://thawing-dawn-14943.herokuapp.com/services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);

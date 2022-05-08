@@ -21,7 +21,7 @@ const ManageInventory = () => {
   const deleteHandle = (id) => {
     const proceed = window.confirm("Are you sure to delete?");
     if (proceed) {
-      const url = `http://localhost:5000/inventory/${id}`;
+      const url = `https://thawing-dawn-14943.herokuapp.com/inventory/${id}`;
       fetch(url, {
         method: "DELETE",
       })
