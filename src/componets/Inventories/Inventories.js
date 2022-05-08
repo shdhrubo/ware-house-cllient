@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useInventories from "../../hooks/useInventories";
 import Inventory from "../Inventory/Inventory";
+import Loading from "../Loading/Loading";
 import "./Inventories.css";
 const Inventories = () => {
-  const [inventories] = useInventories();
+  const [inventories, , loading] = useInventories();
   const slicedInventories = inventories.slice(0, 6);
 
   return (
@@ -17,10 +18,24 @@ const Inventories = () => {
       >
         <div className="container ">
           <div className=" row g-4 mx-auto ">
-         
-            {slicedInventories.map((inventory) => (
-              <Inventory key={inventory._id} inventory={inventory}></Inventory>
-            ))}
+            {loading ? (
+              <>
+                <p>
+                  <i
+                    className="bx bx-loader bx-spin"
+                    style={{ color: "#5d5d5d" }}
+                  ></i>{" "}
+                  Loading...
+                </p>
+              </>
+            ) : (
+              slicedInventories.map((inventory) => (
+                <Inventory
+                  key={inventory._id}
+                  inventory={inventory}
+                ></Inventory>
+              ))
+            )}
           </div>
           <Link to="/manageinventories">
             <button className="btn mt-3  rounded-pill">

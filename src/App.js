@@ -22,7 +22,7 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 10);
   }, []);
   return (
     <div className="App">
