@@ -1,0 +1,10 @@
+.navbar-nav a {
+  margin-left: 10px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-weight: 500;
+}
+.company-logo{
+  font-family: 'Macondo', cursive;
+  font-family: 'Poppins', sans-serif;
+}

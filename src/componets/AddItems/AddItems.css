@@ -1,0 +1,11 @@
+.add-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 30px auto;
+}
+
+.add-form input,
+.add-form textarea {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,16 @@
+.common-color {
+  color: #00ad9f;
+}
+.container a button {
+  font-weight: 500;
+  color: white;
+  background-color: #00ad9f;
+}
+.banner h2 {
+  font-family: 'Macondo', cursive;
+  font-family: 'Poppins', sans-serif;
+}
+.banner p {
+  font-family: "Macondo", cursive;
+  font-family: "Roboto Flex", sans-serif;
+}

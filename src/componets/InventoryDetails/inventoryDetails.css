@@ -1,0 +1,12 @@
+.inventories-details button,
+input[type="submit"] {
+  font-weight: 500;
+  color: white;
+  background-color: #00ad9f;
+}
+.inventory-details-information {
+  line-height: 2px;
+}
+.inventory-details input[type="number"] {
+  border: 1px solid #00ad9f;
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "John De",
+    "img":"https://www.icolorpalette.com/download/solidcolorimage/eeebe3_solid_color_background_icolorpalette.png",
+    "personImg":"https://i.ibb.co/bN8QwWx/business-man-curly-cute-handsome-guy-black-suit-close-up-smiling.jpg",
+    "designation": "CEO,ATS Limited.",
+    "description": "Nice services.Can't believe to get all services free."
+  },
+  {
+    "id": 2,
+    "name": "Alex Sandro",
+    "img":"https://www.icolorpalette.com/download/solidcolorimage/eeebe3_solid_color_background_icolorpalette.png",
+    "personImg":"https://i.ibb.co/25dps6g/portrait-handsome-european-male-student-has-gentle-smile-face-happy-hear-pleasant-news-stands-deligh.jpg",
+    "designation": "Manager,chaldal.com",
+    "description": "I surely recommend their services.It's worthy!"
+  },
+  {
+    "id": 3,
+    "name": "Ali Raj",
+    "img":"https://www.icolorpalette.com/download/solidcolorimage/eeebe3_solid_color_background_icolorpalette.png",
+    "personImg":"https://i.ibb.co/3TJXxWz/waist-up-portrait-handsome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-ta.jpg",
+    "designation": "Manager,Finix Limited",
+    "description": "Never saw any inventory management system like this.Awesome"
+  }
+]

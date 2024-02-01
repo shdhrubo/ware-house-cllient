@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Free",
+    "description": "We are providing you absolutely free services.Just proving  that not only money always make people happy!So don't waste more time."
+  },
+  {
+    "id": 2,
+    "name": "Trusted",
+    "description": "We believe that trust is more important than anything.Providing services with trust.We have awesomes users feedback."
+  },
+  {
+    "id": 3,
+    "name": "Easy",
+    "description": "Our services are  user friendly.Log in and you can enjoy our services.No bugs in the website makes your experience more easy"
+  }
+]

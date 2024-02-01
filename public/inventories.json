@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop",
+    "img": "https://www.lenovo.com/medias/lenovo-laptop-thinkpad-p40-yoga-laptop-mode-3.jpg?context=bWFzdGVyfGltYWdlc3w0MzE3NXxpbWFnZS9qcGVnfGltYWdlcy9oNjIvaDY4Lzk0NDQ3NTc0NzEyNjIuanBnfDBiZjg0MTJhODNjNGQ4M2M1ZmM2ZWIwYzhjMDZhMDlmMWJiOTg0YmI0MzczZjFhNjhkNTQ3ODAzZDExZDViYmQ",
+    "description": "This is a laptop",
+    "supplier": "lenovo",
+    "price": "$ 4550 ",
+    "quantity": "10"
+  },
+  {
+    "id": 2,
+    "name": "Phone",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu2247NkialOzGtDxhG4_7wu77l9Wno9FwWQ&usqp=CAU",
+    "description": "This is a phone",
+    "supplier": "Apple",
+    "price": "$ 3550 ",
+    "quantity": "10"
+  },
+  {
+    "id": 3,
+    "name": "Watch",
+    "img": "https://cdn.idropnews.com/wp-content/uploads/2021/11/08113233/Apple-Watch-Series-7-Review-2021.jpg",
+    "description": "This is a watch",
+    "supplier": "Apple",
+    "price": "$ 2050 ",
+    "quantity": "10"
+  },
+  {
+    "id": 4,
+    "name": "Neckband",
+    "img": "https://static-01.daraz.com.bd/p/mdc/ea6abcc4a46d2c2c48dfcabdf78707b3.jpg",
+    "description": "This is a Neckband",
+    "supplier": "lenovo",
+    "price": "$ 250 ",
+    "quantity": "10"
+  },
+  {
+    "id": 5,
+    "name": "Ear Buds",
+    "img": "https://bsmedia.business-standard.com/_media/bs/img/misc/2021-02/24/full/realme-buds-air-2-1614149766-73551960.jpg",
+    "description": "This is a Ear Buds",
+    "supplier": "Realme",
+    "price": "$ 550 ",
+    "quantity": "10"
+  },
+  {
+    "id": 6,
+    "name": "Key Board",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_V3y4HUYV9wH_Y3a8rI1SrwaZRyhYifohIw&usqp=CAU",
+    "description": "This is a Key Board",
+    "supplier": "A4tech",
+    "price": "$ 450 ",
+    "quantity": "10"
+  },
+  {
+    "id": 7,
+    "name": "Mouse",
+    "img": "https://cdn.vox-cdn.com/thumbor/_ScsbdHriArUpAhTZ-WiSVX7qQ8=/1400x1400/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/22511467/Untitled.png",
+    "description": "This is a Mouse",
+    "supplier": "lenovo",
+    "price": "$ 50 ",
+    "quantity": "10"
+  },
+  {
+    "id": 8,
+    "name": "CPU",
+    "img": "https://www.pngkey.com/png/detail/396-3968366_hp-pavilion-hp-cpu-2017-model.png",
+    "description": "This is a CPU ",
+    "supplier": "HP",
+    "price": "$ 850 ",
+    "quantity": "10"
+  }
+]
