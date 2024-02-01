@@ -26,7 +26,7 @@ const AddItems = () => {
     };
 
     // send data to the server
-    fetch("https://thawing-dawn-14943.herokuapp.com/inventories", {
+    fetch("https://warehouse-9jcz.onrender.com/inventories", {
       method: "POST",
       headers: {
         "content-type": "application/json",

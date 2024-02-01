@@ -5,7 +5,7 @@ const useInventories = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://thawing-dawn-14943.herokuapp.com/inventories`)
+    fetch(`https://warehouse-9jcz.onrender.com/inventories`)
       .then((res) => res.json())
       .then((data) => {
         setInventories(data);

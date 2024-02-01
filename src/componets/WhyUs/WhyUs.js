@@ -6,7 +6,7 @@ const WhyUs = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://thawing-dawn-14943.herokuapp.com/services")
+    fetch("https://warehouse-9jcz.onrender.com/services")
       .then((res) => res.json())
       .then((data) => setServices(data))
       .finally(() => {

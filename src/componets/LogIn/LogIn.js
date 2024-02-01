@@ -38,7 +38,7 @@ const LogIn = () => {
     const password = passwordRef.current.value;
     await signInWithEmailAndPassword(email, password);
     const { data } = await axios.post(
-      "https://thawing-dawn-14943.herokuapp.com/login",
+      "https://warehouse-9jcz.onrender.com/login",
       { email }
     );
     localStorage.setItem("accessToken", data.accessToken);

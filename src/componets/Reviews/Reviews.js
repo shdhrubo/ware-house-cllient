@@ -6,7 +6,7 @@ const Reviews = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://thawing-dawn-14943.herokuapp.com/reviews")
+    fetch("https://warehouse-9jcz.onrender.com/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .finally(() => {

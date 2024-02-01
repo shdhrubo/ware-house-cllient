@@ -42,7 +42,7 @@ function App() {
                 </RequireAuth>
               }
             ></Route>
-            <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+            {/* <Route path="/blogs" element={<Blogs></Blogs>}></Route> */}
             <Route path="/about" element={<AboutUs></AboutUs>}></Route>
             <Route
               path="/inventory/:id"

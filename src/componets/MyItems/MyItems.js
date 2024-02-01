@@ -18,7 +18,7 @@ const MyItems = () => {
   useEffect(() => {
     const getItems = async () => {
       const email = user.email;
-      const url = `https://thawing-dawn-14943.herokuapp.com/items?email=${email}`;
+      const url = `https://warehouse-9jcz.onrender.com/items?email=${email}`;
       const { data } = await axios.get(url, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
