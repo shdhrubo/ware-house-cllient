@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
+import { Helmet } from "react-helmet";
 import AboutUs from "./componets/AboutUs/AboutUs";
 import AddItems from "./componets/AddItems/AddItems";
 import Blogs from "./componets/Blogs/Blogs";
@@ -26,6 +27,12 @@ function App() {
   }, []);
   return (
     <div className="App">
+      <Helmet>
+        <meta
+          name="google-site-verification"
+          content="qUyKGLgDyUYRHtnqZx_ss0srtH2kiVMluTrj_BBHx-4"
+        />
+      </Helmet>
       {loading ? (
         <Loading></Loading>
       ) : (
