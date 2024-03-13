@@ -12,7 +12,7 @@ const AboutUs = () => {
           believe that trust is more important than anything.Providing services
           with trust.We have awesomes users feedback. Our services are user
           friendly.Log in and you can enjoy our services.No bugs in the website
-          makes your experience more easy.
+          makes your experience more easy and comfortable.
         </p>
       </div>
     </div>
