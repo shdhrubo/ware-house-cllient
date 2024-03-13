@@ -27,12 +27,6 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <Helmet>
-        <meta
-          name="google-site-verification"
-          content="qUyKGLgDyUYRHtnqZx_ss0srtH2kiVMluTrj_BBHx-4"
-        />
-      </Helmet>
       {loading ? (
         <Loading></Loading>
       ) : (
