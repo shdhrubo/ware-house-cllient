@@ -18,15 +18,12 @@ const Reviews = () => {
       <h4 className="common-color heading mt-5">Testimonials</h4>
       <Carousel className="mt-4 mb-5" variant="dark">
         {loading ? (
-          <>
-            <p>
-              <i
-                className="bx bx-loader bx-spin"
-                style={{ color: "#5d5d5d" }}
-              ></i>{" "}
-              Loading...
-            </p>
-          </>
+          <div className="loading-spinner">
+            <div className="spinner-ring"></div>
+            <span style={{ color: "var(--text-muted)", fontSize: "0.88rem" }}>
+              Loading testimonials...
+            </span>
+          </div>
         ) : (
           reviews.map((review) => (
             <Carousel.Item>
