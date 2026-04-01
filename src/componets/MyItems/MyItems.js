@@ -96,10 +96,10 @@ const MyItems = () => {
             <tbody>
               {myItems.map((myItem) => (
                 <tr key={myItem._id}>
-                  <td>
+                  <td data-label="Item Name">
                     <div className="table-item-name">{myItem.name}</div>
                   </td>
-                  <td>
+                  <td data-label="Quantity">
                     <span
                       className={`table-qty-badge ${myItem.quantity === 0 ? "sold" : ""}`}
                     >
@@ -108,7 +108,7 @@ const MyItems = () => {
                         : `${myItem.quantity} Units`}
                     </span>
                   </td>
-                  <td>
+                  <td data-label="Actions">
                     <div className="action-btns">
                       <button
                         onClick={() => navigateToInventoryDetaills(myItem._id)}

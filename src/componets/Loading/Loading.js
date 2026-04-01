@@ -1,9 +1,13 @@
 import React from "react";
-import loadingImg from "../../images/loading.gif";
 const Loading = () => {
   return (
-    <div>
-      <img src={loadingImg} alt="" />
+    <div className="loading-full-page">
+      <div className="loading-full-page-inner">
+        <div className="loading-spinner-outer"></div>
+        <div className="loading-spinner-inner"></div>
+        <div className="loading-logo-glow"></div>
+      </div>
+      <div className="loading-text">Loading</div>
     </div>
   );
 };

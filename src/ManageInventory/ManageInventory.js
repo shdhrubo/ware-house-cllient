@@ -80,11 +80,11 @@ const ManageInventory = () => {
             <tbody>
               {inventories.map((inventory) => (
                 <tr key={inventory._id}>
-                  <td>
+                  <td data-label="Item Name">
                     <div className="table-item-name">{inventory.name}</div>
                   </td>
-                  <td>{inventory.supplier || "Unknown"}</td>
-                  <td>
+                  <td data-label="Supplier">{inventory.supplier || "Unknown"}</td>
+                  <td data-label="Quantity">
                     <span
                       className={`table-qty-badge ${inventory.quantity === 0 ? "sold" : ""}`}
                     >
@@ -93,7 +93,7 @@ const ManageInventory = () => {
                         : `${inventory.quantity} Units`}
                     </span>
                   </td>
-                  <td>
+                  <td data-label="Actions">
                     <div className="action-btns">
                       <button
                         onClick={() =>
