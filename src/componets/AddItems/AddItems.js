@@ -2,7 +2,10 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase.init";
-import "./AddItems.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBox, faAlignLeft, faTruck, faImage, faTags, faHashtag, faPlus } from "@fortawesome/free-solid-svg-icons";
+import "../LogIn/Auth.css";
+
 const AddItems = () => {
   const [user] = useAuthState(auth);
 
@@ -25,7 +28,6 @@ const AddItems = () => {
       email,
     };
 
-    // send data to the server
     fetch("https://warehouse-9jcz.onrender.com/inventories", {
       method: "POST",
       headers: {
@@ -35,39 +37,70 @@ const AddItems = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        toast("Inventory added successfully!!!");
+        toast.success("Inventory added successfully!");
         event.target.reset();
       });
   };
+
   return (
-    <div>
-      <h2 className="common-color">Add new inventory items</h2>
-      <form className="add-form" onSubmit={handleAddItems}>
-        {/* <input type="email" readOnly value={user.email} /> */}
-        <input name="name" type="text" placeholder="Name" required />
+    <div className="auth-page">
+      <div className="auth-glow"></div>
+      <div className="auth-container" style={{ maxWidth: "540px" }}>
+        <div className="auth-card glass-card">
+          <div className="auth-header text-center">
+            <span className="section-badge"><FontAwesomeIcon icon={faPlus} style={{ marginRight: 6 }} /> New Item</span>
+            <h2 className="section-title" style={{ fontSize: "1.8rem" }}>Add Inventory</h2>
+            <p className="auth-subtitle">Fill in the details for the new product</p>
+          </div>
 
-        <textarea
-          name="description"
-          type="text"
-          placeholder="Description"
-          required
-        />
+          <form className="auth-form" onSubmit={handleAddItems}>
+            <div className="auth-input-group">
+              <span className="input-icon"><FontAwesomeIcon icon={faBox} /></span>
+              <input name="name" type="text" placeholder="Product Name" required className="auth-input" />
+            </div>
 
-        <input
-          name="supplier"
-          type="text"
-          placeholder="Supplier Name"
-          required
-        />
-        <input name="img" type="text" placeholder="Image URL" required />
+            <div className="auth-input-group" style={{ alignItems: "flex-start", paddingTop: "12px" }}>
+              <span className="input-icon" style={{ marginTop: "4px" }}><FontAwesomeIcon icon={faAlignLeft} /></span>
+              <textarea
+                name="description"
+                placeholder="Product Description"
+                required
+                className="auth-input"
+                style={{ resize: "none", minHeight: "80px", padding: "0 0 12px 0" }}
+              />
+            </div>
 
-        <input name="price" type="text" placeholder="Price" required />
+            <div className="auth-input-group">
+              <span className="input-icon"><FontAwesomeIcon icon={faTruck} /></span>
+              <input name="supplier" type="text" placeholder="Supplier Name" required className="auth-input" />
+            </div>
 
-        <input name="quantity" type="number" placeholder="Quantity" required />
+            <div className="auth-input-group">
+              <span className="input-icon"><FontAwesomeIcon icon={faImage} /></span>
+              <input name="img" type="text" placeholder="Image URL (http://...)" required className="auth-input" />
+            </div>
 
-        <input type="submit" value="Add Item" className="btn" required />
-      </form>
-      <ToastContainer></ToastContainer>
+            <div style={{ display: "flex", gap: "16px" }}>
+              <div className="auth-input-group" style={{ flex: 1 }}>
+                <span className="input-icon"><FontAwesomeIcon icon={faTags} /></span>
+                <input name="price" type="number" step="0.01" placeholder="Price ($)" required className="auth-input" />
+              </div>
+
+              <div className="auth-input-group" style={{ flex: 1 }}>
+                <span className="input-icon"><FontAwesomeIcon icon={faHashtag} /></span>
+                <input name="quantity" type="number" placeholder="Quantity" required className="auth-input" />
+              </div>
+            </div>
+
+            <div className="auth-actions" style={{ marginTop: "16px" }}>
+              <button type="submit" className="btn-primary-custom w-100 justify-content-center">
+                Add to Database
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <ToastContainer theme="dark" />
     </div>
   );
 };

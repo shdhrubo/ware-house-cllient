@@ -5,13 +5,15 @@ import {
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-
-import "./LogIn.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "../Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import "./Auth.css"; // We will use a shared Auth.css
+
 const LogIn = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -21,87 +23,106 @@ const LogIn = () => {
   let from = location.state?.from?.pathname || "/";
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-  let errorElement;
+  
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  
   const resetPassword = async () => {
     const email = emailRef.current.value;
     if (email) {
       await sendPasswordResetEmail(email);
-      toast("Varification Email Sent");
+      toast.success("Verification Email Sent");
     } else {
-      toast("Please enter your email address");
+      toast.error("Please enter your email address");
     }
   };
+
   const handleLogin = async (event) => {
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     await signInWithEmailAndPassword(email, password);
-    const { data } = await axios.post(
-      "https://warehouse-9jcz.onrender.com/login",
-      { email }
-    );
-    localStorage.setItem("accessToken", data.accessToken);
+    try {
+      const { data } = await axios.post(
+        "https://warehouse-9jcz.onrender.com/login",
+        { email }
+      );
+      if (data && data.accessToken) {
+        localStorage.setItem("accessToken", data.accessToken);
+      }
+    } catch (err) {
+      console.error(err);
+    }
     navigate(from, { replace: true });
-
     event.target.reset();
   };
-  if (error) {
-    errorElement = <p className="text-danger">Error: {error?.message}</p>;
-  }
-  if (loading || sending) {
-    return <Loading></Loading>;
-  }
-  if (user) {
-    // navigate(from, { replace: true });
-  }
-  return (
-    <div className="form w-100">
-      <h2 className="text-center common-color">Log In</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          ref={emailRef}
-          type="email"
-          name="email"
-          id=""
-          placeholder="Email Address"
-          required
-        />
-        <br />
-        <input
-          ref={passwordRef}
-          type="password"
-          name="password"
-          id=""
-          placeholder="Password"
-          required
-        />
-        <br />
 
-        <input
-          className="w-50 mx-auto btn  mt-2"
-          type="submit"
-          value="Log In"
-        />
-      </form>
-      {errorElement}
-      <Link
-        to="/register"
-        className="common-color pe-auto text-decoration-none"
-      >
-        I don't have an account
-      </Link>{" "}
-      <br />
-      <div className="forget-btn">
-        <button
-          className=" btn btn-link pe-auto text-decoration-none "
-          onClick={resetPassword}
-        >
-          Reset Password
-        </button>{" "}
+  if (loading || sending) {
+    return <Loading />;
+  }
+
+  return (
+    <div className="auth-page">
+      <div className="auth-glow"></div>
+      <div className="auth-container">
+        <div className="auth-card glass-card">
+          <div className="auth-header text-center">
+            <h2 className="section-title" style={{ fontSize: "2rem" }}>Welcome Back</h2>
+            <p className="auth-subtitle">Log in to manage your inventory</p>
+          </div>
+
+          <form onSubmit={handleLogin} className="auth-form">
+            <div className="auth-input-group">
+              <span className="input-icon"><FontAwesomeIcon icon={faEnvelope} /></span>
+              <input
+                ref={emailRef}
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required
+                className="auth-input"
+              />
+            </div>
+            
+            <div className="auth-input-group">
+              <span className="input-icon"><FontAwesomeIcon icon={faLock} /></span>
+              <input
+                ref={passwordRef}
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+                className="auth-input"
+              />
+            </div>
+
+            {error && <p className="auth-error">{error?.message}</p>}
+
+            <div className="auth-actions">
+              <button type="submit" className="btn-primary-custom w-100 justify-content-center">
+                Log In
+              </button>
+            </div>
+            
+            <div className="auth-links">
+              <button
+                type="button"
+                className="btn-forgot btn-link"
+                onClick={resetPassword}
+              >
+                Forgot Password?
+              </button>
+            </div>
+          </form>
+
+          <SocialLogin />
+
+          <div className="auth-footer text-center">
+            <span>Don't have an account? </span>
+            <Link to="/register" className="auth-link-bold">Sign up here</Link>
+          </div>
+        </div>
       </div>
-      <SocialLogin></SocialLogin>
-      <ToastContainer></ToastContainer>
+      <ToastContainer theme="dark" />
     </div>
   );
 };

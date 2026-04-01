@@ -1,39 +1,49 @@
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Inventory.css";
-const Inventory = (props) => {
-  const id = useParams();
+
+const Inventory = ({ inventory }) => {
   const navigate = useNavigate();
-  const { inventory } = props;
-  const navigateToInventoryDetaills = (id) => {
-    navigate(`/inventory/${id}`);
-  };
+
   return (
-    <div
-      className="inventory bg-white col-12 col-sm-12 col-md-6 col-lg-6 mx-auto "
-      style={{ width: "300px" }}
-    >
-      <img
-        className="p-1 pt-3"
-        style={{ width: "250px", height: "180px" }}
-        src={inventory.img}
-        alt=""
-      />
-      <h6 className="common-color mt-2 text-start">{inventory.name}</h6>
-      <div className="inventory-details text-start">
-        <p>{inventory.description}</p>
-        <p>Supplier: {inventory.supplier}</p>
-        <p>Price: {inventory.price}</p>
-        <h6>Quantity: {inventory.quantity}</h6>
+    <div className="inv-card">
+      <div className="inv-card-img-wrap">
+        <img src={inventory.img} alt={inventory.name} />
+        <div className="inv-card-overlay"></div>
+        <span className="inv-card-badge">In Stock</span>
       </div>
-      <button
-        onClick={() => navigateToInventoryDetaills(inventory._id)}
-        className="btn mt-3 mb-3 rounded-pill "
-      >
-        Update <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
-      </button>
+
+      <div className="inv-card-body">
+        <div className="inv-card-name">{inventory.name}</div>
+        <div className="inv-card-desc">{inventory.description}</div>
+        <div className="inv-card-divider"></div>
+        <div className="inv-card-meta">
+          <div className="inv-meta-row">
+            <span className="inv-meta-label">Supplier</span>
+            <span className="inv-meta-val">{inventory.supplier}</span>
+          </div>
+          <div className="inv-meta-row">
+            <span className="inv-meta-label">Price</span>
+            <span className="inv-meta-val inv-price">${inventory.price}</span>
+          </div>
+          <div className="inv-meta-row">
+            <span className="inv-meta-label">Quantity</span>
+            <span className="inv-qty-chip">{inventory.quantity} units</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="inv-card-footer">
+        <button
+          className="btn-update"
+          onClick={() => navigate(`/inventory/${inventory._id}`)}
+        >
+          <FontAwesomeIcon icon={faEdit} />
+          Update Stock
+        </button>
+      </div>
     </div>
   );
 };

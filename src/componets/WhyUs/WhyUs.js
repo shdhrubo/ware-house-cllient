@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import WhyUsDetails from "../WhyUsDetails/WhyUsDetails";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import "./WhyUs.css";
 
 const WhyUs = () => {
   const [services, setServices] = useState([]);
@@ -9,33 +12,37 @@ const WhyUs = () => {
     fetch("https://warehouse-9jcz.onrender.com/services")
       .then((res) => res.json())
       .then((data) => setServices(data))
-      .finally(() => {
-        setLoading(false);
-      });
+      .finally(() => setLoading(false));
   }, []);
+
   return (
-    <div style={{ margin: "70px 0" }}>
-      <h4 className="common-color heading">Why us</h4>
-      <div className="container">
-        <div className="row g-2 mt-3">
-          {loading ? (
-            <>
-              <p>
-                <i
-                  className="bx bx-loader bx-spin"
-                  style={{ color: "#5d5d5d" }}
-                ></i>{" "}
-                Loading...
-              </p>
-            </>
-          ) : (
-            services.map((service) => (
-              <WhyUsDetails key={service.id} service={service}></WhyUsDetails>
-            ))
-          )}
+    <section className="whyus-section section-padding">
+      <div className="whyus-bg-glow"></div>
+      <div className="container-custom">
+        <div className="whyus-header">
+          <span className="section-badge"><FontAwesomeIcon icon={faStar} style={{ marginRight: 6 }} /> Our Features</span>
+          <h2 className="section-title">
+            Why Teams Choose <span className="gradient-text">EIMS</span>
+          </h2>
+          <p className="section-subtitle">
+            Everything you need to run a modern, efficient warehouse operation — built for speed and scale.
+          </p>
         </div>
+
+        {loading ? (
+          <div className="loading-spinner" style={{ minHeight: 200 }}>
+            <div className="spinner-ring"></div>
+            <span style={{ color: "var(--text-muted)", fontSize: "0.88rem" }}>Loading features…</span>
+          </div>
+        ) : (
+          <div className="features-grid">
+            {services.map((service, index) => (
+              <WhyUsDetails key={service.id || index} service={service} index={index} />
+            ))}
+          </div>
+        )}
       </div>
-    </div>
+    </section>
   );
 };
 
