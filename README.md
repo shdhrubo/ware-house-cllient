@@ -4,7 +4,7 @@ EIMS is a website where you can manage your inventory items easily.We are provid
 
 Backend Repository: https://github.com/shdhrubo/ware-house-server
 
-Live site Link https://inventory-management-b4678.web.app/
+Live site Link:  https://inventory-management-b4678.web.app/
 
 # Site's features and functionality
 
